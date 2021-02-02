@@ -17,6 +17,9 @@ public class Aposta {
 	@Column(name = "IDAPOSTA")
 	private long id;
 	
+	
+	//TODO:MUDAR PARA VARCHAR
+	
 	@Column(name = "NUMEROS")
 	private long numeros;
 
@@ -38,7 +41,7 @@ public class Aposta {
 	}
 
 	public void setId(long id) {
-		id = id;
+		this.id = id;
 	}
 
 	public long getNumeros() {

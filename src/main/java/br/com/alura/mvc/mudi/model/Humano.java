@@ -2,10 +2,14 @@ package br.com.alura.mvc.mudi.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -23,11 +27,14 @@ public class Humano {
 	@Column(name = "NOME")
 	private String nome;
 
-	@OneToMany(mappedBy = "humano")
+	//SEM CASCADE TYPE AS ALETRAÇÕES DE UMA TABELA N VAO PARA OUTRA
+	//POR PADRAO TEM QUE COLOCAR PARA MANTER A 'LIGAÇÃO' ENTRE AS TABELAS
+	
+	@JsonIgnoreProperties("humano")
+	@OneToMany(mappedBy = "humano" , cascade = CascadeType.ALL)
 	private List<Aposta> apostas;
 	
-	
-	
+		
 	public List<Aposta> getApostas() {
 		return apostas;
 	}
@@ -41,7 +48,7 @@ public class Humano {
 	}
 
 	public void setId(long id) {
-		id = id;
+		this.id = id;
 	}
 
 	public String getEmail() {
@@ -59,6 +66,7 @@ public class Humano {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+	
 	
 	
 	

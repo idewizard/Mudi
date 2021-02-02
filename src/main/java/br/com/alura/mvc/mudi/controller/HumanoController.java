@@ -16,11 +16,11 @@ public class HumanoController {
 	private HumanoRepository humanoRepository;
 	
 	@GetMapping("/humano")
-	public String ListaApostasHumano() {
+	public List<Humano> ListaApostasHumano() {
 		
 		List<Humano> listaHumanos = humanoRepository.findAll();
 		
-		return String.valueOf(listaHumanos.get(0).getApostas().get(0).getNumeros());
+		return listaHumanos;
 	}
 	
 }
