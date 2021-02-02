@@ -26,6 +26,16 @@ public class Humano {
 	@OneToMany(mappedBy = "humano")
 	private List<Aposta> apostas;
 	
+	
+	
+	public List<Aposta> getApostas() {
+		return apostas;
+	}
+
+	public void setApostas(List<Aposta> apostas) {
+		this.apostas = apostas;
+	}
+
 	public long getId() {
 		return id;
 	}

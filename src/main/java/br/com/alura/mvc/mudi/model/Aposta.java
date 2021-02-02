@@ -23,7 +23,16 @@ public class Aposta {
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "HUMANO_IDHUMANO")
 	private Humano humano;
+		
 	
+	public Humano getHumano() {
+		return humano;
+	}
+
+	public void setHumano(Humano humano) {
+		this.humano = humano;
+	}
+
 	public long getId() {
 		return id;
 	}
